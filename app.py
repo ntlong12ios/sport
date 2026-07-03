@@ -14,7 +14,7 @@ from pydantic import BaseModel
 # 1. KHỞI TẠO CƠ SỞ DỮ LIỆU & IMPORT DỮ LIỆU TỪ EXCEL
 # ==============================================================================
 DB_FILE = "muong_thanh_sports_v2.db"
-EXCEL_FILE = "DHMT2026 - Phan chia chi tieu tai VCK 20260617.XLSX"
+EXCEL_FILE = "Data.xlsx"
 
 def init_db():
     conn = sqlite3.connect(DB_FILE)
@@ -928,10 +928,11 @@ def index_page():
                     </div>
                 `;
                 
+                let totalTeams = Object.values(mindmapData.clusters).reduce((sum, arr) => sum + arr.length, 0);
                 const centerNode = document.createElement('div');
                 centerNode.className = "bg-green-700 text-white font-bold text-xl px-6 py-3 rounded border-2 border-yellow-400 shadow-lg text-center uppercase";
                 centerNode.id = "mm_center_node";
-                centerNode.innerText = mindmapData.sport;
+                centerNode.innerHTML = `${mindmapData.sport}<div class="text-sm text-orange-500 normal-case font-normal italic mt-1">(Tổng số: ${totalTeams} đội)</div>`;
                 document.getElementById('mm_center').appendChild(centerNode);
                 
                 function createClusterHTML(cName, side) {
