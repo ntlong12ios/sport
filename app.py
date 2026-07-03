@@ -47,10 +47,9 @@ def load_data_from_excel():
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
     
-    cursor.execute("SELECT COUNT(*) FROM master_registrations")
-    if cursor.fetchone()[0] > 0:
-        conn.close()
-        return
+    cursor.execute("DELETE FROM master_registrations")
+    cursor.execute("DELETE FROM master_sports")
+    conn.commit()
 
     print("Đang nạp dữ liệu từ file Excel (Sheet: Tong hop)...")
     try:
