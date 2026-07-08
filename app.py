@@ -13,8 +13,10 @@ from pydantic import BaseModel
 # ==============================================================================
 # 1. KHỞI TẠO CƠ SỞ DỮ LIỆU & IMPORT DỮ LIỆU TỪ EXCEL
 # ==============================================================================
+import json
 DB_FILE = "muong_thanh_sports_v2.db"
 EXCEL_FILE = "Data.xlsx"
+MINDMAP_JSON = "saved_mindmaps.json"
 
 def init_db():
     conn = sqlite3.connect(DB_FILE)
@@ -96,6 +98,10 @@ load_data_from_excel()
 # CÁC PHẦN CÒN LẠI GIỮ NGUYÊN HOÀN TOÀN NHƯ BẢN V2 TRƯỚC ĐÓ
 # ==============================================================================
 app = FastAPI(title="Mường Thanh Tournament V2 (Excel Support)")
+
+class MindmapSaveRequest(BaseModel):
+    sport: str
+    state: dict
 
 class ConfigRequest(BaseModel):
     sport_name: str
@@ -244,6 +250,41 @@ def get_sport_overview(sport: str):
             results[cluster].append(f"{cluster_num}.{idx+1} {team}")
             
     return {"sport": sport, "clusters": results}
+
+import threading
+mindmap_lock = threading.Lock()
+
+@app.post("/api/save-mindmap")
+def save_mindmap(req: MindmapSaveRequest):
+    with mindmap_lock:
+        try:
+            with open(MINDMAP_JSON, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except:
+            data = {}
+        data[req.sport] = req.state
+        with open(MINDMAP_JSON, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+    return {"status": "success"}
+
+
+@app.get("/api/load-mindmap")
+def load_mindmap(sport: str):
+    try:
+        with open(MINDMAP_JSON, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return {"state": data.get(sport)}
+    except:
+        return {"state": None}
+
+@app.get("/api/load-all-mindmaps")
+def load_all_mindmaps():
+    try:
+        with open(MINDMAP_JSON, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return data
+    except:
+        return {}
 
 @app.post("/api/save-tournament/{config_id}")
 def save_tournament(config_id: int):
@@ -545,6 +586,28 @@ def index_page():
             let currentConfigId = null;
 
             async function initApp() {
+                // Migrate from localStorage to Backend if exists
+                const oldKeys = [];
+                for(let i=0; i<localStorage.length; i++){
+                    let k = localStorage.key(i);
+                    if(k.startsWith('saved_final_mindmap_')) {
+                        oldKeys.push(k);
+                    }
+                }
+                if (oldKeys.length > 0) {
+                    oldKeys.forEach(k => {
+                        let sport = k.replace('saved_final_mindmap_', '');
+                        let state = JSON.parse(localStorage.getItem(k));
+                        fetch('/api/save-mindmap', {
+                            method: 'POST',
+                            headers: {'Content-Type': 'application/json'},
+                            body: JSON.stringify({sport: sport, state: state})
+                        }).then(() => {
+                            localStorage.removeItem(k);
+                        });
+                    });
+                }
+
                 const res = await fetch('/api/master-data');
                 const data = await res.json();
                 
@@ -1026,6 +1089,7 @@ def index_page():
             function mmDragOver(ev) {
                 ev.preventDefault();
             }
+
             function mmDrop(ev) {
                 ev.preventDefault();
                 if(!draggedClusterNode) return;
@@ -1139,18 +1203,22 @@ def index_page():
             }
 
             async function exportAllMindMapsPDF() {
-                let keys = [];
-                for(let i=0; i<localStorage.length; i++){
-                    let k = localStorage.key(i);
-                    if(k.startsWith('saved_final_mindmap_')) {
-                        keys.push(k);
-                    }
-                }
+                const res = await fetch('/api/load-all-mindmaps');
+                const allSaved = await res.json();
+                const keys = Object.keys(allSaved);
                 
                 if(keys.length === 0) {
                     Swal.fire('Thông báo', 'Chưa có sơ đồ nào được lưu! Bạn cần "Lưu sơ đồ" trước khi xuất tất cả.', 'info');
                     return;
                 }
+
+                // Sort keys based on the order in the mindmap_sport dropdown
+                const mmSelect = document.getElementById('mindmap_sport');
+                const orderMap = {};
+                for (let i = 0; i < mmSelect.options.length; i++) {
+                    orderMap[mmSelect.options[i].value] = i;
+                }
+                keys.sort((a, b) => (orderMap[a] ?? 999) - (orderMap[b] ?? 999));
 
                 Swal.fire({
                     title: 'Đang xuất PDF...',
@@ -1176,9 +1244,7 @@ def index_page():
                 
                 for(let i=0; i<keys.length; i++){
                     let k = keys[i];
-                    let savedStr = localStorage.getItem(k);
-                    if(!savedStr) continue;
-                    let state = JSON.parse(savedStr);
+                    let state = allSaved[k];
                     mindmapData = state.mindmapData;
                     currentLeftClusters = state.left;
                     currentRightClusters = state.right;
@@ -1216,12 +1282,11 @@ def index_page():
                 // Khôi phục
                 if(originalSport) {
                     document.getElementById('mindmap_sport').value = originalSport;
-                    const currentStr = localStorage.getItem('saved_final_mindmap_' + originalSport);
+                    const currentStr = allSaved[originalSport];
                     if (currentStr) {
-                        let s = JSON.parse(currentStr);
-                        mindmapData = s.mindmapData;
-                        currentLeftClusters = s.left;
-                        currentRightClusters = s.right;
+                        mindmapData = currentStr.mindmapData;
+                        currentLeftClusters = currentStr.left;
+                        currentRightClusters = currentStr.right;
                         renderMindMap();
                     }
                 }
@@ -1403,7 +1468,7 @@ def index_page():
                 });
             }
 
-            function saveFinalMindMap() {
+            async function saveFinalMindMap() {
                 if (!mindmapData) return;
                 const sport = mindmapData.sport;
                 const state = {
@@ -1411,30 +1476,38 @@ def index_page():
                     left: currentLeftClusters,
                     right: currentRightClusters
                 };
-                localStorage.setItem('saved_final_mindmap_' + sport, JSON.stringify(state));
+                
+                await fetch('/api/save-mindmap', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({sport: sport, state: state})
+                });
+                
                 Swal.fire('Thành công', 'Đã lưu sơ đồ hoàn thiện cho môn ' + sport, 'success');
             }
 
-            function loadSavedMindMap() {
+            async function loadSavedMindMap() {
                 const sport = document.getElementById('mindmap_sport').value;
                 if(!sport) {
                     Swal.fire('Lỗi', 'Chưa có môn thi để chọn!', 'error');
                     return;
                 }
-                const savedStr = localStorage.getItem('saved_final_mindmap_' + sport);
-                if (!savedStr) {
-                    Swal.fire('Thông báo', 'Chưa có sơ đồ nào được lưu cho môn này!', 'info');
-                    return;
-                }
+                
                 try {
-                    const state = JSON.parse(savedStr);
+                    const res = await fetch(`/api/load-mindmap?sport=${encodeURIComponent(sport)}`);
+                    const json = await res.json();
+                    if (!json.state) {
+                        Swal.fire('Thông báo', 'Chưa có sơ đồ nào được lưu cho môn này!', 'info');
+                        return;
+                    }
+                    const state = json.state;
                     mindmapData = state.mindmapData;
                     currentLeftClusters = state.left;
                     currentRightClusters = state.right;
                     renderMindMap();
                     Swal.fire('Thành công', 'Đã tải sơ đồ được lưu!', 'success');
                 } catch(e) {
-                    Swal.fire('Lỗi', 'Không thể đọc dữ liệu đã lưu.', 'error');
+                    Swal.fire('Lỗi', 'Không thể đọc dữ liệu đã lưu trên server.', 'error');
                 }
             }
 

@@ -1,0 +1,1087 @@
+{
+  "Bóng bàn đôi nam": {
+    "mindmapData": {
+      "sport": "Bóng bàn đôi nam",
+      "clusters": {
+        "CỤM 1": [
+          "1.1 Cụm Chung cư Hà Nội",
+          "1.2 Mường Thanh Grand Hà Nội",
+          "1.3 Mường Thanh Luxury Bắc Ninh",
+          "1.4 Mường Thanh Luxury Hà Nam"
+        ],
+        "CỤM 4": [
+          "4.1 Mường Thanh Diễn Châu",
+          "4.2 Mường Thanh Grand Hoàng Mai"
+        ],
+        "CỤM 6": [
+          "6.1 Mường Thanh Holiday Huế"
+        ]
+      },
+      "clusterInfo": {},
+      "generalInfo": "07 đội BB Đôi nam đi thẳng VCK"
+    },
+    "left": [
+      "CỤM 1",
+      "CỤM 4"
+    ],
+    "right": [
+      "CỤM 6"
+    ]
+  },
+  "Cầu lông đơn nữ": {
+    "mindmapData": {
+      "sport": "Cầu lông đơn nữ",
+      "clusters": {
+        "CỤM 1 & CỤM 2 & CỤM 3 & CỤM 4": [
+          "1.1 Cienco5 và DHE (đội 1)",
+          "1.2 Cienco5 và DHE (đội 2)",
+          "1.3 Mường Thanh Grand Hà Nội",
+          "1.4 Mường Thanh Grand Tuyên Quang",
+          "1.5 Văn Phòng Tập Đoàn (đội 1)",
+          "1.6 Văn Phòng Tập Đoàn (đội 2)",
+          "1.7 Văn Phòng Tập Đoàn (đội 3)",
+          "1.8 Văn Phòng Tập Đoàn (đội 4)",
+          "1.9 Văn Phòng Tập Đoàn (đội 5)",
+          "1.10 Văn Phòng Tập Đoàn (đội 6)",
+          "2.11 Mường Thanh Luxury Điện Biên",
+          "3.12 Mường Thanh Grand Hạ Long",
+          "4.13 Mường Thanh Luxury Diễn Lâm"
+        ],
+        "CỤM 6": [
+          "6.1 Mường Thanh Grand Quảng Trị (đội 1)",
+          "6.2 Mường Thanh Grand Quảng Trị (đội 2)",
+          "6.3 Mường Thanh Grand Đà Nẵng",
+          "6.4 Mường Thanh Luxury Đà Nẵng"
+        ],
+        "CỤM 7 & CỤM 8": [
+          "7.1 Mường Thanh Grand Nha Trang",
+          "7.2 Mường Thanh Luxury Buôn Ma Thuột",
+          "7.3 Mường Thanh Luxury Viễn Triều",
+          "8.4 Mường Thanh Luxury Sài Gòn"
+        ]
+      },
+      "clusterInfo": {
+        "CỤM 1 & CỤM 2 & CỤM 3 & CỤM 4": "Địa điểm: Cụm 1\nChỉ tiêu: 6",
+        "CỤM 6": "Chỉ tiêu: 1",
+        "CỤM 7 & CỤM 8": "Chỉ tiêu: 1"
+      },
+      "generalInfo": "- Cụm 1+2+3+4: 13 lấy 6\n- Cụm 6: lấy 1\n- Cụm 7+8: lấy 1"
+    },
+    "left": [
+      "CỤM 1 & CỤM 2 & CỤM 3 & CỤM 4"
+    ],
+    "right": [
+      "CỤM 6",
+      "CỤM 7 & CỤM 8"
+    ]
+  },
+  "Kéo co phối hợp Nam - Nữ": {
+    "mindmapData": {
+      "sport": "Kéo co phối hợp Nam - Nữ",
+      "clusters": {
+        "CỤM 1": [
+          "1.1 Chung cư Thanh Hà",
+          "1.2 Cienco5 và DHE",
+          "1.3 Cụm Chung cư Hà Nội",
+          "1.4 Cụm siêu thị MT Mart",
+          "1.5 Mường Thanh Luxury Hà Nam",
+          "1.6 Mường Thanh Luxury Phú Thọ",
+          "1.7 Văn Phòng Tập Đoàn"
+        ],
+        "CỤM 2": [
+          "2.1 Mường Thanh Grand Lào Cai",
+          "2.2 Mường Thanh Grand Điện Biên Phủ",
+          "2.3 Mường Thanh Holiday Mộc Châu",
+          "2.4 Mường Thanh Luxury Sơn La",
+          "2.5 Mường Thanh Sa Pa"
+        ],
+        "CỤM 3": [
+          "3.1 Mường Thanh Grand Hạ Long",
+          "3.2 Mường Thanh Holiday Suối Mơ",
+          "3.3 Mường Thanh Luxury Cao Bằng",
+          "3.4 Mường Thanh Luxury Lạng Sơn"
+        ],
+        "CỤM 4": [
+          "4.1 Mường Thanh Diễn Châu",
+          "4.2 Mường Thanh Luxury Diễn Lâm",
+          "4.3 Mường Thanh Vinh"
+        ],
+        "CỤM 5": [
+          "5.1 Mường Thanh Cửa Đông",
+          "5.2 Mường Thanh Grand Cửa Lò",
+          "5.3 Mường Thanh Luxury Vientiane",
+          "5.4 Mường Thanh Luxury Xuân Thành"
+        ],
+        "CỤM 6": [
+          "6.1 Mường Thanh Grand Quảng Nam",
+          "6.2 Mường Thanh Grand Quảng Trị",
+          "6.3 Mường Thanh Holiday Lý Sơn",
+          "6.4 Mường Thanh Luxury Sông Hàn",
+          "6.5 Mường Thanh Luxury Đà Nẵng"
+        ],
+        "CỤM 7": [
+          "7.1 Mường Thanh Grand Gia Lai",
+          "7.2 Mường Thanh Grand Nha Trang",
+          "7.3 Mường Thanh Luxury Nha Trang"
+        ],
+        "CỤM 8": [
+          "8.1 Mường Thanh Holiday Mũi Né",
+          "8.2 Mường Thanh Holiday Vũng Tàu",
+          "8.3 Mường Thanh Luxury Cà Mau",
+          "8.4 Mường Thanh Luxury Cần Thơ",
+          "8.5 Mường Thanh Luxury Sài Gòn"
+        ]
+      },
+      "clusterInfo": {},
+      "generalInfo": "Tất cả các cụm đấu loại để lấy 1 đội/cụm đi VCK"
+    },
+    "left": [
+      "CỤM 1",
+      "CỤM 2",
+      "CỤM 3",
+      "CỤM 4"
+    ],
+    "right": [
+      "CỤM 5",
+      "CỤM 6",
+      "CỤM 7",
+      "CỤM 8"
+    ]
+  },
+  "Cầu lông đơn nam": {
+    "mindmapData": {
+      "sport": "Cầu lông đơn nam",
+      "clusters": {
+        "CỤM 1 & CỤM 2 & CỤM 3": [
+          "1.1 Chung cư Thanh Hà (đội 1)",
+          "1.2 Chung cư Thanh Hà (đội 2)",
+          "1.3 Cienco5 và DHE",
+          "1.4 Cụm Chung cư Hà Nội",
+          "1.5 Mường Thanh Grand Hà Nội",
+          "1.6 Mường Thanh Grand Hà Nội Centre (đội 1)",
+          "1.7 Mường Thanh Grand Hà Nội Centre (đội 2)",
+          "1.8 Mường Thanh Grand Tuyên Quang",
+          "1.9 Mường Thanh Grand Xa La",
+          "1.10 Văn Phòng Tập Đoàn (đội 1)",
+          "1.11 Văn Phòng Tập Đoàn (đội 2)",
+          "2.12 Mường Thanh Grand Điện Biên Phủ",
+          "2.13 Mường Thanh Luxury Điện Biên",
+          "3.14 Mường Thanh Luxury Cao Bằng",
+          "3.15 Mường Thanh Luxury Hạ Long Centre II",
+          "3.16 Mường Thanh Luxury Lạng Sơn"
+        ],
+        "CỤM 4 & CỤM 5": [
+          "4.1 Mường Thanh Diễn Châu",
+          "4.2 Mường Thanh Luxury Diễn Lâm",
+          "5.3 Mường Thanh Grand Hà Tĩnh",
+          "5.4 Trung tâm Giải trí Vinh"
+        ],
+        "CỤM 6": [
+          "6.1 Mường Thanh Grand Quảng Trị",
+          "6.2 Mường Thanh Holiday Huế",
+          "6.3 Mường Thanh Luxury Sông Hàn",
+          "6.4 Mường Thanh Luxury Đà Nẵng (đội 1)",
+          "6.5 Mường Thanh Luxury Đà Nẵng (đội 2)"
+        ],
+        "CỤM 7": [
+          "7.1 Mường Thanh Grand Nha Trang",
+          "7.2 Mường Thanh Holiday Đà Lạt",
+          "7.3 Mường Thanh Luxury Khánh Hòa",
+          "7.4 Mường Thanh Luxury Nha Trang"
+        ],
+        "CỤM 8": [
+          "8.1 Mường Thanh Holiday Mũi Né",
+          "8.2 Mường Thanh Holiday Vũng Tàu",
+          "8.3 Mường Thanh Luxury Cần Thơ",
+          "8.4 Mường Thanh Luxury Sài Gòn"
+        ]
+      },
+      "clusterInfo": {
+        "CỤM 1 & CỤM 2 & CỤM 3": "Địa điểm: Cụm 1\nChỉ tiêu: 4",
+        "CỤM 4 & CỤM 5": "Chỉ tiêu: 1",
+        "CỤM 6": "Chỉ tiêu: 1",
+        "CỤM 7": "Chỉ tiêu: 1",
+        "CỤM 8": "Chỉ tiêu: 1"
+      },
+      "generalInfo": "- Cụm 1+2+3: 16 lấy 4\n- Cụm 4+5: 4 lấy 1\n- Các cụm khác lấy 1"
+    },
+    "left": [
+      "CỤM 1 & CỤM 2 & CỤM 3",
+      "CỤM 4 & CỤM 5",
+      "CỤM 6"
+    ],
+    "right": [
+      "CỤM 7",
+      "CỤM 8"
+    ]
+  },
+  "Cầu lông đôi nữ": {
+    "mindmapData": {
+      "sport": "Cầu lông đôi nữ",
+      "clusters": {
+        "CỤM 1 & CỤM 2 & CỤM 3": [
+          "1.1 Cienco5 và DHE",
+          "1.2 Mường Thanh Grand Thanh Hóa",
+          "1.3 Mường Thanh Grand Tuyên Quang (đội 1)",
+          "1.4 Mường Thanh Grand Tuyên Quang (đội 2)",
+          "1.5 Mường Thanh Luxury Hà Nam",
+          "1.6 Văn Phòng Tập Đoàn (đội 1)",
+          "1.7 Văn Phòng Tập Đoàn (đội 2)",
+          "1.8 Văn Phòng Tập Đoàn (đội 3)",
+          "1.9 Văn Phòng Tập Đoàn (đội 4)",
+          "2.10 Mường Thanh Luxury Điện Biên",
+          "3.11 Mường Thanh Grand Hạ Long"
+        ],
+        "CỤM 5": [
+          "5.1 Mường Thanh Luxury Vientiane",
+          "5.2 Trung tâm Giải trí Vinh"
+        ],
+        "CỤM 6": [
+          "6.1 Mường Thanh Grand Quảng Trị",
+          "6.2 Mường Thanh Luxury Sông Hàn (đội 1)",
+          "6.3 Mường Thanh Luxury Sông Hàn (đội 2)",
+          "6.4 Mường Thanh Luxury Đà Nẵng"
+        ],
+        "CỤM 7 & CỤM 8": [
+          "7.1 Mường Thanh Luxury Buôn Ma Thuột",
+          "7.2 Mường Thanh Quy Nhơn",
+          "8.3 Mường Thanh Grand Sài Gòn Centre"
+        ]
+      },
+      "clusterInfo": {
+        "CỤM 1 & CỤM 2 & CỤM 3": "Địa điểm: Cụm 1\nChỉ tiêu: 5,5 suất",
+        "CỤM 5": "Chỉ tiêu: 0,5 suất",
+        "CỤM 6": "Chỉ tiêu: 2 suất",
+        "CỤM 7 & CỤM 8": "Địa điểm:\nChỉ tiêu: 1 suất"
+      },
+      "generalInfo": "- Cụm 1 + 2 + 3: 11 lấy 5,5\n- Cụm 5: 2 lấy 0,5\n- Cụm 6: 4 lấy 1\n- Cụm 7+8: 3 lấy 1"
+    },
+    "left": [
+      "CỤM 1 & CỤM 2 & CỤM 3",
+      "CỤM 5"
+    ],
+    "right": [
+      "CỤM 6",
+      "CỤM 7 & CỤM 8"
+    ]
+  },
+  "Bơi ếch Nam - cự ly 80m": {
+    "mindmapData": {
+      "sport": "Bơi ếch Nam - cự ly 80m",
+      "clusters": {
+        "CỤM 1": [
+          "1.1 Cụm Chung cư Hà Nội",
+          "1.2 Mường Thanh Grand Hà Nội"
+        ],
+        "CỤM 2": [
+          "2.1 Mường Thanh Lai Châu"
+        ],
+        "CỤM 3": [
+          "3.1 Mường Thanh Luxury Hạ Long Centre II (đội 1)",
+          "3.2 Mường Thanh Luxury Hạ Long Centre II (đội 2)"
+        ],
+        "CỤM 5": [
+          "5.1 Mường Thanh Luxury Nhật Lệ",
+          "5.2 Trung tâm Giải trí Vinh"
+        ],
+        "CỤM 7": [
+          "7.1 Mường Thanh Luxury Viễn Triều"
+        ],
+        "CỤM 8": [
+          "8.1 Mường Thanh Grand Sài Gòn Centre",
+          "8.2 Mường Thanh Luxury Cà Mau",
+          "8.3 Mường Thanh Luxury Sài Gòn"
+        ]
+      },
+      "clusterInfo": {},
+      "generalInfo": "11 đội vào thẳng VCK"
+    },
+    "left": [
+      "CỤM 1",
+      "CỤM 2",
+      "CỤM 3"
+    ],
+    "right": [
+      "CỤM 5",
+      "CỤM 7",
+      "CỤM 8"
+    ]
+  },
+  "Pickleball đôi nam - nữ": {
+    "mindmapData": {
+      "sport": "Pickleball đôi nam - nữ",
+      "clusters": {
+        "CỤM 1 & CỤM 3": [
+          "1.1 Cienco5 và DHE (đội 1)",
+          "1.2 Cienco5 và DHE (đội 2)",
+          "1.3 Cienco5 và DHE (đội 3)",
+          "1.4 Cienco5 và DHE (đội 4)",
+          "1.5 Cienco5 và DHE (đội 5)",
+          "1.6 Cụm Chung cư Hà Nội",
+          "1.7 Cụm siêu thị MT Mart",
+          "1.8 Mường Thanh Grand Thanh Hóa",
+          "1.9 Mường Thanh Grand Tuyên Quang",
+          "1.10 Văn Phòng Tập Đoàn (đội 1)",
+          "1.11 Văn Phòng Tập Đoàn (đội 2)",
+          "1.12 Văn Phòng Tập Đoàn (đội 3)",
+          "1.13 Văn Phòng Tập Đoàn (đội 4)",
+          "1.14 Văn Phòng Tập Đoàn (đội 5)",
+          "1.15 Văn Phòng Tập Đoàn (đội 6)",
+          "3.16 Mường Thanh Grand Bãi Cháy"
+        ],
+        "CỤM 2": [
+          "2.1 Mường Thanh Holiday Mộc Châu",
+          "2.2 Mường Thanh Lai Châu (đội 1)",
+          "2.3 Mường Thanh Lai Châu (đội 2)",
+          "2.4 Mường Thanh Lai Châu (đội 3)",
+          "2.5 Mường Thanh Lai Châu (đội 4)",
+          "2.6 Mường Thanh Luxury Sơn La"
+        ],
+        "CỤM 4 & CỤM 5": [
+          "4.1 Mường Thanh Thanh Niên Vinh",
+          "4.2 Mường Thanh Vinh",
+          "5.3 Mường Thanh Grand Hà Tĩnh",
+          "5.4 Mường Thanh Grand Phương Đông",
+          "5.5 Mường Thanh Luxury Nhật Lệ",
+          "5.6 Mường Thanh Luxury Vientiane",
+          "5.7 Mường Thanh Luxury Xuân Thành",
+          "5.8 Trung tâm Giải trí Vinh"
+        ],
+        "CỤM 6": [
+          "6.1 Mường Thanh Grand Quảng Nam",
+          "6.2 Mường Thanh Grand Quảng Trị",
+          "6.3 Mường Thanh Luxury Sông Hàn",
+          "6.4 Mường Thanh Luxury Đà Nẵng (đội 1)",
+          "6.5 Mường Thanh Luxury Đà Nẵng (đội 2)"
+        ],
+        "CỤM 8": [
+          "8.1 Mường Thanh Luxury Cà Mau",
+          "8.2 Mường Thanh Luxury Phú Quốc"
+        ]
+      },
+      "clusterInfo": {
+        "CỤM 1 & CỤM 3": "Chỉ tiêu: 3,5 suất",
+        "CỤM 2": "Chỉ tiêu: 1 suất",
+        "CỤM 4 & CỤM 5": "Chỉ tiêu: 2 suất",
+        "CỤM 6": "Chỉ tiêu: 1 suất",
+        "CỤM 8": "Chỉ tiêu: 0,5 suất ( play-off với cụm 1)"
+      },
+      "generalInfo": "- Cụm 1 + 3: 16 lấy 3,5\n- Cụm 2: lấy 1\n- Cụm 4+5: 8 lấy 2\n- Cụm 6: 5 lấy 1\n- Cụm 8: 0,5 ( play-off với cụm 1)"
+    },
+    "left": [
+      "CỤM 1 & CỤM 3",
+      "CỤM 2",
+      "CỤM 4 & CỤM 5"
+    ],
+    "right": [
+      "CỤM 6",
+      "CỤM 8"
+    ]
+  },
+  "Bóng bàn đơn nữ": {
+    "mindmapData": {
+      "sport": "Bóng bàn đơn nữ",
+      "clusters": {
+        "CỤM 1": [
+          "1.1 Cienco5 và DHE (đội 1)",
+          "1.2 Cienco5 và DHE (đội 2)",
+          "1.3 Cienco5 và DHE (đội 3)",
+          "1.4 Mường Thanh Grand Thanh Hóa",
+          "1.5 Văn Phòng Tập Đoàn (đội 1)",
+          "1.6 Văn Phòng Tập Đoàn (đội 2)",
+          "1.7 Văn Phòng Tập Đoàn (đội 3)",
+          "1.8 Văn Phòng Tập Đoàn (đội 4)"
+        ],
+        "CỤM 2": [
+          "2.1 Mường Thanh Grand Điện Biên Phủ"
+        ],
+        "CỤM 5": [
+          "5.1 Mường Thanh Golf Club Xuân Thành",
+          "5.2 Mường Thanh Grand Cửa Lò"
+        ],
+        "CỤM 8": [
+          "8.1 Mường Thanh Luxury Sài Gòn"
+        ]
+      },
+      "clusterInfo": {},
+      "generalInfo": "Đi thẳng vòng chung kết"
+    },
+    "left": [
+      "CỤM 1",
+      "CỤM 2"
+    ],
+    "right": [
+      "CỤM 5",
+      "CỤM 8"
+    ]
+  },
+  "Bơi tự do Nam - cự ly 40m": {
+    "mindmapData": {
+      "sport": "Bơi tự do Nam - cự ly 40m",
+      "clusters": {
+        "CỤM 1": [
+          "1.1 Cienco5 và DHE",
+          "1.2 Mường Thanh Grand Hà Nội",
+          "1.3 Mường Thanh Grand Hà Nội Centre (đội 1)",
+          "1.4 Mường Thanh Grand Hà Nội Centre (đội 2)",
+          "1.5 Mường Thanh Grand Hà Nội Centre (đội 3)",
+          "1.6 Mường Thanh Grand Xa La",
+          "1.7 Mường Thanh Luxury Hà Nam",
+          "1.8 Văn Phòng Tập Đoàn (đội 1)",
+          "1.9 Văn Phòng Tập Đoàn (đội 2)"
+        ],
+        "CỤM 2": [
+          "2.1 Mường Thanh Grand Điện Biên Phủ",
+          "2.2 Mường Thanh Holiday Mộc Châu (đội 1)",
+          "2.3 Mường Thanh Holiday Mộc Châu (đội 2)",
+          "2.4 Mường Thanh Holiday Mộc Châu (đội 3)",
+          "2.5 Mường Thanh Lai Châu"
+        ],
+        "CỤM 3": [
+          "3.1 Mường Thanh Luxury Cao Bằng",
+          "3.2 Mường Thanh Luxury Hạ Long Centre"
+        ],
+        "CỤM 4": [
+          "4.1 Mường Thanh Diễn Châu",
+          "4.2 Mường Thanh Holiday Con Cuông"
+        ],
+        "CỤM 5": [
+          "5.1 Mường Thanh Grand Cửa Lò (đội 1)",
+          "5.2 Mường Thanh Grand Cửa Lò (đội 2)",
+          "5.3 Trung tâm Giải trí Vinh"
+        ],
+        "CỤM 6": [
+          "6.1 Mường Thanh Grand Quảng Nam",
+          "6.2 Mường Thanh Holiday Huế",
+          "6.3 Mường Thanh Holiday Hội An",
+          "6.4 Mường Thanh Luxury Sông Hàn",
+          "6.5 Mường Thanh Luxury Đà Nẵng (đội 1)",
+          "6.6 Mường Thanh Luxury Đà Nẵng (đội 2)"
+        ],
+        "CỤM 7": [
+          "7.1 Mường Thanh Quy Nhơn"
+        ],
+        "CỤM 8": [
+          "8.1 Mường Thanh Grand Sài Gòn Centre (đội 1)",
+          "8.2 Mường Thanh Grand Sài Gòn Centre (đội 2)",
+          "8.3 Mường Thanh Holiday Mũi Né",
+          "8.4 Mường Thanh Holiday Vũng Tàu",
+          "8.5 Mường Thanh Luxury Cần Thơ",
+          "8.6 Mường Thanh Luxury Phú Quốc"
+        ]
+      },
+      "clusterInfo": {},
+      "generalInfo": "Thi bấm thời gian\n=> Chọn Top 10 VĐV thời gian\nnhanh nhất vào VCK"
+    },
+    "left": [
+      "CỤM 1",
+      "CỤM 2",
+      "CỤM 3",
+      "CỤM 4"
+    ],
+    "right": [
+      "CỤM 5",
+      "CỤM 6",
+      "CỤM 7",
+      "CỤM 8"
+    ]
+  },
+  "Bóng đá nam": {
+    "mindmapData": {
+      "sport": "Bóng đá nam",
+      "clusters": {
+        "CỤM 1": [
+          "1.1 Chung cư Thanh Hà",
+          "1.2 Cienco5 và DHE",
+          "1.3 Mường Thanh Grand Hà Nội",
+          "1.4 Mường Thanh Luxury Bắc Ninh",
+          "1.5 Mường Thanh Luxury Hà Nam",
+          "1.6 Mường Thanh Luxury Phú Thọ",
+          "1.7 Văn Phòng Tập Đoàn"
+        ],
+        "CỤM 2": [
+          "2.1 Mường Thanh Grand Lào Cai",
+          "2.2 Mường Thanh Grand Điện Biên Phủ",
+          "2.3 Mường Thanh Lai Châu",
+          "2.4 Mường Thanh Luxury Sơn La",
+          "2.5 Mường Thanh Sa Pa"
+        ],
+        "CỤM 3": [
+          "3.1 Mường Thanh Grand Hạ Long",
+          "3.2 Mường Thanh Holiday Suối Mơ",
+          "3.3 Mường Thanh Luxury Cao Bằng",
+          "3.4 Mường Thanh Luxury Lạng Sơn"
+        ],
+        "CỤM 4 & CỤM 5": [
+          "4.1 Mường Thanh Diễn Châu",
+          "4.2 Mường Thanh Luxury Diễn Lâm",
+          "5.3 Mường Thanh Cửa Đông",
+          "5.4 Mường Thanh Grand Cửa Lò",
+          "5.5 Mường Thanh Holiday Quảng Bình",
+          "5.6 Mường Thanh Luxury Xuân Thành"
+        ],
+        "CỤM 6": [
+          "6.1 Mường Thanh Grand Quảng Trị",
+          "6.2 Mường Thanh Grand Đà Nẵng",
+          "6.3 Mường Thanh Holiday Huế",
+          "6.4 Mường Thanh Holiday Hội An",
+          "6.5 Mường Thanh Holiday Lý Sơn",
+          "6.6 Mường Thanh Luxury Đà Nẵng"
+        ],
+        "CỤM 7": [
+          "7.1 Mường Thanh Grand Gia Lai",
+          "7.2 Mường Thanh Grand Nha Trang",
+          "7.3 Mường Thanh Luxury Khánh Hòa",
+          "7.4 Mường Thanh Quy Nhơn"
+        ],
+        "CỤM 8": [
+          "8.1 Mường Thanh Grand Sài Gòn Centre",
+          "8.2 Mường Thanh Luxury Cà Mau",
+          "8.3 Mường Thanh Luxury Cần Thơ",
+          "8.4 Mường Thanh Luxury Sài Gòn"
+        ]
+      },
+      "clusterInfo": {
+        "CỤM 4 & CỤM 5": "- Chỉ tiêu: 1 suất",
+        "CỤM 8": "",
+        "CỤM 1": "",
+        "CỤM 2": "",
+        "CỤM 3": "",
+        "CỤM 6": "",
+        "CỤM 7": ""
+      },
+      "generalInfo": "- Cụm 4 + 5 = 6 đội => đấu loại lấy 1 đội đi VCK\n- Các cụm khác thi lấy 1\n- Khách mời: 1\n=> TỔNG SỐ: 8 SUẤT"
+    },
+    "left": [
+      "CỤM 1",
+      "CỤM 2",
+      "CỤM 3",
+      "CỤM 4 & CỤM 5"
+    ],
+    "right": [
+      "CỤM 6",
+      "CỤM 7",
+      "CỤM 8"
+    ]
+  },
+  "Bơi tự do Nam - cự ly 80m": {
+    "mindmapData": {
+      "sport": "Bơi tự do Nam - cự ly 80m",
+      "clusters": {
+        "CỤM 1": [
+          "1.1 Cienco5 và DHE (đội 1)",
+          "1.2 Cienco5 và DHE (đội 2)",
+          "1.3 Cienco5 và DHE (đội 3)",
+          "1.4 Mường Thanh Grand Hà Nội Centre"
+        ],
+        "CỤM 2": [
+          "2.1 Mường Thanh Lai Châu",
+          "2.2 Mường Thanh Luxury Sơn La"
+        ],
+        "CỤM 3": [
+          "3.1 Mường Thanh Luxury Cao Bằng",
+          "3.2 Mường Thanh Luxury Hạ Long Centre"
+        ],
+        "CỤM 4": [
+          "4.1 Mường Thanh Luxury Diễn Lâm"
+        ],
+        "CỤM 5": [
+          "5.1 Mường Thanh Grand Cửa Lò (đội 1)",
+          "5.2 Mường Thanh Grand Cửa Lò (đội 2)",
+          "5.3 Mường Thanh Grand Phương Đông",
+          "5.4 Trung tâm Giải trí Vinh"
+        ],
+        "CỤM 6": [
+          "6.1 Mường Thanh Holiday Huế",
+          "6.2 Mường Thanh Holiday Hội An",
+          "6.3 Mường Thanh Luxury Đà Nẵng (đội 1)",
+          "6.4 Mường Thanh Luxury Đà Nẵng (đội 2)"
+        ],
+        "CỤM 7": [
+          "7.1 Mường Thanh Luxury Nha Trang",
+          "7.2 Mường Thanh Luxury Viễn Triều"
+        ],
+        "CỤM 8": [
+          "8.1 Mường Thanh Luxury Cà Mau"
+        ]
+      },
+      "clusterInfo": {},
+      "generalInfo": "Tất cả đều thi bấm thời gian\n=> Chọn Top 10 VĐV thời gian\nnhanh nhất vào VCK"
+    },
+    "left": [
+      "CỤM 1",
+      "CỤM 2",
+      "CỤM 3",
+      "CỤM 4"
+    ],
+    "right": [
+      "CỤM 5",
+      "CỤM 6",
+      "CỤM 7",
+      "CỤM 8"
+    ]
+  },
+  "Cầu lông đôi nam - nữ": {
+    "mindmapData": {
+      "sport": "Cầu lông đôi nam - nữ",
+      "clusters": {
+        "CỤM 1 & CỤM 3": [
+          "1.1 Cụm Chung cư Hà Nội",
+          "1.2 Mường Thanh Grand Hà Nội",
+          "1.3 Mường Thanh Grand Thanh Hóa (đội 1)",
+          "1.4 Mường Thanh Grand Thanh Hóa (đội 2)",
+          "1.5 Mường Thanh Grand Thanh Hóa (đội 3)",
+          "1.6 Mường Thanh Grand Tuyên Quang",
+          "1.7 Văn Phòng Tập Đoàn (đội 1)",
+          "1.8 Văn Phòng Tập Đoàn (đội 2)",
+          "1.9 Văn Phòng Tập Đoàn (đội 3)",
+          "3.10 Mường Thanh Luxury Lạng Sơn"
+        ],
+        "CỤM 2": [
+          "2.1 Mường Thanh Grand Điện Biên Phủ",
+          "2.2 Mường Thanh Luxury Sơn La",
+          "2.3 Mường Thanh Luxury Điện Biên"
+        ],
+        "CỤM 4 & CỤM 5": [
+          "4.1 Mường Thanh Luxury Diễn Lâm",
+          "5.2 Mường Thanh Grand Hà Tĩnh",
+          "5.3 Trung tâm Giải trí Vinh"
+        ],
+        "CỤM 6": [
+          "6.1 Mường Thanh Grand Quảng Trị",
+          "6.2 Mường Thanh Grand Đà Nẵng",
+          "6.3 Mường Thanh Holiday Huế",
+          "6.4 Mường Thanh Luxury Sông Hàn (đội 1)",
+          "6.5 Mường Thanh Luxury Sông Hàn (đội 2)",
+          "6.6 Mường Thanh Luxury Đà Nẵng (đội 1)",
+          "6.7 Mường Thanh Luxury Đà Nẵng (đội 2)"
+        ],
+        "CỤM 7 & CỤM 8": [
+          "7.1 Mường Thanh Holiday Đà Lạt",
+          "7.2 Mường Thanh Luxury Nha Trang",
+          "8.3 Mường Thanh Grand Sài Gòn Centre (đội 1)",
+          "8.4 Mường Thanh Grand Sài Gòn Centre (đội 2)",
+          "8.5 Mường Thanh Luxury Cà Mau",
+          "8.6 Mường Thanh Luxury Cần Thơ",
+          "8.7 Mường Thanh Luxury Sài Gòn (đội 1)",
+          "8.8 Mường Thanh Luxury Sài Gòn (đội 2)",
+          "8.9 Mường Thanh Luxury Sài Gòn (đội 3)",
+          "8.10 Mường Thanh Luxury Sài Gòn (đội 4)"
+        ]
+      },
+      "clusterInfo": {
+        "CỤM 1 & CỤM 3": "Địa điểm: Cụm 1\nChỉ tiêu: 2",
+        "CỤM 2": "Chỉ tiêu: 1",
+        "CỤM 4 & CỤM 5": "Chỉ tiêu: 1",
+        "CỤM 6": "Chỉ tiêu: 2",
+        "CỤM 7 & CỤM 8": "Địa điểm: Cụm 8\nChỉ tiêu: 2"
+      },
+      "generalInfo": "- Cụm 1 + 3: 10 lấy 2\n- Cụm 2: 3 lấy 1\n- Cụm 4+5: 3 lấy 1\n- Cụm 6: 7 lấy 2\n- Cụm 7 + 8: 10 lấy 2"
+    },
+    "left": [
+      "CỤM 1 & CỤM 3",
+      "CỤM 2",
+      "CỤM 4 & CỤM 5"
+    ],
+    "right": [
+      "CỤM 6",
+      "CỤM 7 & CỤM 8"
+    ]
+  },
+  "Bóng bàn đơn nam": {
+    "mindmapData": {
+      "sport": "Bóng bàn đơn nam",
+      "clusters": {
+        "CỤM 1 & CỤM 2 & CỤM 3": [
+          "1.1 Cienco5 và DHE",
+          "1.2 Cụm Chung cư Hà Nội",
+          "1.3 Mường Thanh Grand Hà Nội",
+          "1.4 Mường Thanh Luxury Bắc Ninh",
+          "2.5 Mường Thanh Luxury Điện Biên",
+          "3.6 Mường Thanh Grand Hạ Long",
+          "3.7 Mường Thanh Luxury Hạ Long Centre II"
+        ],
+        "CỤM 4 & CỤM 5": [
+          "4.1 Mường Thanh Diễn Châu (đội 1)",
+          "4.2 Mường Thanh Diễn Châu (đội 2)",
+          "4.3 Mường Thanh Grand Hoàng Mai (đội 1)",
+          "4.4 Mường Thanh Grand Hoàng Mai (đội 2)",
+          "4.5 Mường Thanh Luxury Diễn Lâm",
+          "5.6 Mường Thanh Grand Cửa Lò",
+          "5.7 Mường Thanh Grand Hà Tĩnh"
+        ],
+        "CỤM 6": [
+          "6.1 Mường Thanh Grand Quảng Trị",
+          "6.2 Mường Thanh Grand Đà Nẵng",
+          "6.3 Mường Thanh Holiday Huế",
+          "6.4 Mường Thanh Luxury Đà Nẵng"
+        ],
+        "CỤM 7 & CỤM 8": [
+          "7.1 Mường Thanh Grand Gia Lai",
+          "7.2 Mường Thanh Grand Nha Trang",
+          "7.3 Mường Thanh Luxury Nha Trang",
+          "8.4 Mường Thanh Luxury Cần Thơ"
+        ]
+      },
+      "clusterInfo": {
+        "CỤM 1 & CỤM 2 & CỤM 3": "- Địa điểm: Cụm 1\n- Chỉ tiêu: 2,5 suất",
+        "CỤM 4 & CỤM 5": "- Chỉ tiêu: 2,5 suất",
+        "CỤM 6": "- Chỉ tiêu: 1,5 suất",
+        "CỤM 7 & CỤM 8": "- Chỉ tiêu: 1,5 suất"
+      },
+      "generalInfo": "- Cụm 1+2+3 về cụm 1: 7 đội lấy 2,5 suất\n- Cụm 4+5: 7 lấy 2,5 suất\n- Cụm 6 lấy 1,5\n- Cụm 7+8 lấy 1,5\n=> TỔNG: 8 SUẤT"
+    },
+    "left": [
+      "CỤM 1 & CỤM 2 & CỤM 3",
+      "CỤM 4 & CỤM 5"
+    ],
+    "right": [
+      "CỤM 6",
+      "CỤM 7 & CỤM 8"
+    ]
+  },
+  "Cầu lông đôi nam": {
+    "mindmapData": {
+      "sport": "Cầu lông đôi nam",
+      "clusters": {
+        "CỤM 1 & CỤM 2 & CỤM 3 & CỤM 5": [
+          "1.1 Chung cư Thanh Hà",
+          "1.2 Cụm Chung cư Hà Nội",
+          "1.3 Mường Thanh Grand Hà Nội Centre",
+          "1.4 Mường Thanh Grand Thanh Hóa",
+          "1.5 Mường Thanh Grand Tuyên Quang",
+          "1.6 Văn Phòng Tập Đoàn",
+          "2.7 Mường Thanh Luxury Điện Biên",
+          "3.8 Mường Thanh Luxury Cao Bằng",
+          "5.9 Mường Thanh Grand Hà Tĩnh",
+          "5.10 Trung tâm Giải trí Vinh"
+        ],
+        "CỤM 6": [
+          "6.1 Mường Thanh Grand Quảng Trị",
+          "6.2 Mường Thanh Grand Đà Nẵng",
+          "6.3 Mường Thanh Holiday Huế",
+          "6.4 Mường Thanh Holiday Hội An",
+          "6.5 Mường Thanh Luxury Sông Hàn",
+          "6.6 Mường Thanh Luxury Đà Nẵng (đội 1)",
+          "6.7 Mường Thanh Luxury Đà Nẵng (đội 2)"
+        ],
+        "CỤM 7 & CỤM 8": [
+          "7.1 Mường Thanh Luxury Buôn Ma Thuột",
+          "7.2 Mường Thanh Luxury Nha Trang",
+          "7.3 Mường Thanh Luxury Viễn Triều",
+          "8.4 Mường Thanh Grand Sài Gòn Centre",
+          "8.5 Mường Thanh Luxury Cần Thơ"
+        ]
+      },
+      "clusterInfo": {
+        "CỤM 1 & CỤM 2 & CỤM 3 & CỤM 5": "Địa điểm: Cụm 1\nChỉ tiêu: 4",
+        "CỤM 6": "Chỉ tiêu: 2",
+        "CỤM 7 & CỤM 8": "Địa điểm: Cụm 7\nChỉ tiêu: 2"
+      },
+      "generalInfo": "- Cụm 1+ 2 + 3 + 5 : 10 lấy 4\n- cụm 7+8: 5 lấy 2\n- Cụm 6: 7 lấy 2"
+    },
+    "left": [
+      "CỤM 1 & CỤM 2 & CỤM 3 & CỤM 5"
+    ],
+    "right": [
+      "CỤM 6",
+      "CỤM 7 & CỤM 8"
+    ]
+  },
+  "Bóng đá nữ": {
+    "mindmapData": {
+      "sport": "Bóng đá nữ",
+      "clusters": {
+        "CỤM 1 & CỤM 3": [
+          "1.1 Cienco5 và DHE",
+          "1.2 Cụm siêu thị MT Mart",
+          "1.3 Mường Thanh Luxury Hà Nam",
+          "3.4 Mường Thanh Luxury Cao Bằng"
+        ],
+        "CỤM 2": [
+          "2.1 Mường Thanh Grand Lào Cai",
+          "2.2 Mường Thanh Grand Điện Biên Phủ",
+          "2.3 Mường Thanh Lai Châu",
+          "2.4 Mường Thanh Luxury Sơn La",
+          "2.5 Mường Thanh Sa Pa"
+        ],
+        "CỤM 4": [
+          "4.1 Mường Thanh Diễn Châu",
+          "4.2 Mường Thanh Luxury Diễn Lâm",
+          "4.3 Mường Thanh Luxury Sông Lam"
+        ],
+        "CỤM 5": [
+          "5.1 Mường Thanh Cửa Đông",
+          "5.2 Mường Thanh Golf Club Xuân Thành",
+          "5.3 Mường Thanh Grand Cửa Lò",
+          "5.4 Mường Thanh Grand Hà Tĩnh"
+        ],
+        "CỤM 6": [
+          "6.1 Mường Thanh Grand Quảng Trị",
+          "6.2 Mường Thanh Holiday Huế",
+          "6.3 Mường Thanh Holiday Hội An",
+          "6.4 Mường Thanh Luxury Đà Nẵng"
+        ],
+        "CỤM 8": [
+          "8.1 Mường Thanh Luxury Cần Thơ",
+          "8.2 Mường Thanh Luxury Sài Gòn"
+        ]
+      },
+      "clusterInfo": {
+        "CỤM 1 & CỤM 3": "- Chỉ tiêu: 1 suất",
+        "CỤM 2": "- Chỉ tiêu: 1 suất",
+        "CỤM 4": "- Chỉ tiêu: 1 suất",
+        "CỤM 5": "- Chỉ tiêu: 1 suất",
+        "CỤM 6": "- Chỉ tiêu: 1 suất",
+        "CỤM 8": "- Chỉ tiêu: 1 suất"
+      },
+      "generalInfo": "- Cụm 1 + 3 = 4 đội => gộp chung đấu loại lấy 1 đội đi VCK\n- Các cụm khác thi đấu lấy 1\n- Cụm 8 đấu loại lấy 1 đi VCK\n=> TỔNG SỐ: 6 SUẤT"
+    },
+    "left": [
+      "CỤM 1 & CỤM 3",
+      "CỤM 2",
+      "CỤM 4"
+    ],
+    "right": [
+      "CỤM 5",
+      "CỤM 6",
+      "CỤM 8"
+    ]
+  },
+  "Bơi ếch Nam - cự ly 40m": {
+    "mindmapData": {
+      "sport": "Bơi ếch Nam - cự ly 40m",
+      "clusters": {
+        "CỤM 1": [
+          "1.1 Cụm Chung cư Hà Nội",
+          "1.2 Mường Thanh Grand Hà Nội",
+          "1.3 Mường Thanh Grand Hà Nội Centre"
+        ],
+        "CỤM 2": [
+          "2.1 Mường Thanh Lai Châu"
+        ],
+        "CỤM 5": [
+          "5.1 Trung tâm Giải trí Vinh"
+        ],
+        "CỤM 6": [
+          "6.1 Mường Thanh Holiday Huế",
+          "6.2 Mường Thanh Luxury Sông Hàn (đội 1)",
+          "6.3 Mường Thanh Luxury Sông Hàn (đội 2)",
+          "6.4 Mường Thanh Luxury Đà Nẵng"
+        ],
+        "CỤM 7": [
+          "7.1 Mường Thanh Luxury Buôn Ma Thuột",
+          "7.2 Mường Thanh Luxury Viễn Triều",
+          "7.3 Mường Thanh Quy Nhơn"
+        ],
+        "CỤM 8": [
+          "8.1 Mường Thanh Grand Sài Gòn Centre (đội 1)",
+          "8.2 Mường Thanh Grand Sài Gòn Centre (đội 2)",
+          "8.3 Mường Thanh Holiday Vũng Tàu"
+        ]
+      },
+      "clusterInfo": {},
+      "generalInfo": "Thi bấm thời gian\n=> Chọn Top 10 VĐV thời gian\nnhanh nhất vào VCK"
+    },
+    "left": [
+      "CỤM 1",
+      "CỤM 2",
+      "CỤM 5"
+    ],
+    "right": [
+      "CỤM 6",
+      "CỤM 7",
+      "CỤM 8"
+    ]
+  },
+  "Bơi tự do Nữ - cự ly 40m": {
+    "mindmapData": {
+      "sport": "Bơi tự do Nữ - cự ly 40m",
+      "clusters": {
+        "CỤM 1": [
+          "1.1 Cienco5 và DHE",
+          "1.2 Văn Phòng Tập Đoàn (đội 1)",
+          "1.3 Văn Phòng Tập Đoàn (đội 2)"
+        ],
+        "CỤM 2": [
+          "2.1 Mường Thanh Grand Điện Biên Phủ"
+        ],
+        "CỤM 4": [
+          "4.1 Mường Thanh Grand Hoàng Mai",
+          "4.2 Mường Thanh Holiday Con Cuông"
+        ],
+        "CỤM 6": [
+          "6.1 Mường Thanh Grand Quảng Trị",
+          "6.2 Mường Thanh Grand Đà Nẵng"
+        ],
+        "CỤM 7": [
+          "7.1 Mường Thanh Luxury Viễn Triều"
+        ]
+      },
+      "clusterInfo": {},
+      "generalInfo": "9 đội vào thẳng VCK"
+    },
+    "left": [
+      "CỤM 1",
+      "CỤM 2",
+      "CỤM 4"
+    ],
+    "right": [
+      "CỤM 6",
+      "CỤM 7"
+    ]
+  },
+  "Pickleball đôi nam": {
+    "mindmapData": {
+      "sport": "Pickleball đôi nam",
+      "clusters": {
+        "CỤM 1 & CỤM 3": [
+          "1.1 Chung cư Thanh Hà (đội 1)",
+          "1.2 Chung cư Thanh Hà (đội 2)",
+          "1.3 Cienco5 và DHE (đội 1)",
+          "1.4 Cienco5 và DHE (đội 2)",
+          "1.5 Cienco5 và DHE (đội 3)",
+          "1.6 Cienco5 và DHE (đội 4)",
+          "1.7 Cụm Chung cư Hà Nội (đội 1)",
+          "1.8 Cụm Chung cư Hà Nội (đội 2)",
+          "1.9 Mường Thanh Grand Thanh Hóa",
+          "1.10 Mường Thanh Grand Tuyên Quang",
+          "1.11 Mường Thanh Luxury Bắc Ninh",
+          "1.12 Mường Thanh Luxury Phú Thọ",
+          "1.13 Văn Phòng Tập Đoàn (đội 1)",
+          "1.14 Văn Phòng Tập Đoàn (đội 2)",
+          "1.15 Văn Phòng Tập Đoàn (đội 3)",
+          "1.16 Văn Phòng Tập Đoàn (đội 4)",
+          "3.17 Mường Thanh Luxury Cao Bằng",
+          "3.18 Mường Thanh Luxury Hạ Long Centre"
+        ],
+        "CỤM 2": [
+          "2.1 Mường Thanh Grand Lào Cai",
+          "2.2 Mường Thanh Holiday Mộc Châu",
+          "2.3 Mường Thanh Lai Châu (đội 1)",
+          "2.4 Mường Thanh Lai Châu (đội 2)"
+        ],
+        "CỤM 4": [
+          "4.1 Bệnh Viện Phủ Diễn",
+          "4.2 Mường Thanh Grand Hoàng Mai",
+          "4.3 Mường Thanh Luxury Diễn Lâm"
+        ],
+        "CỤM 5": [
+          "5.1 Mường Thanh Grand Cửa Lò",
+          "5.2 Mường Thanh Holiday Quảng Bình",
+          "5.3 Trung tâm Giải trí Vinh"
+        ],
+        "CỤM 6": [
+          "6.1 Mường Thanh Grand Đà Nẵng",
+          "6.2 Mường Thanh Holiday Hội An",
+          "6.3 Mường Thanh Luxury Sông Hàn",
+          "6.4 Mường Thanh Luxury Đà Nẵng"
+        ],
+        "CỤM 7 & CỤM 8": [
+          "7.1 Mường Thanh Luxury Nha Trang",
+          "8.2 Mường Thanh Grand Sài Gòn Centre",
+          "8.3 Mường Thanh Holiday Mũi Né",
+          "8.4 Mường Thanh Luxury Cần Thơ"
+        ]
+      },
+      "clusterInfo": {
+        "CỤM 1 & CỤM 3": "Chỉ tiêu: 4",
+        "CỤM 2": "Chỉ tiêu: 1",
+        "CỤM 4": "Nhất cụm 4 đấu nhất cụm 5 lấy 1 suất",
+        "CỤM 5": "Nhất cụm 4 đấu nhất cụm 5 lấy 1 suất",
+        "CỤM 6": "Chỉ tiêu: 1",
+        "CỤM 7 & CỤM 8": "Chỉ tiêu: 1"
+      },
+      "generalInfo": "Nhất cụm 4 đấu nhất cụm 5 lấy 1 suất\n- Cụm 1+3: 18 lấy 4\n- Cụm 2: 4 lấy 1\n- Cụm 6: 4 lấy 1\n- Cụm 7+8: 4 lấy 1"
+    },
+    "left": [
+      "CỤM 1 & CỤM 3",
+      "CỤM 2",
+      "CỤM 4"
+    ],
+    "right": [
+      "CỤM 5",
+      "CỤM 6",
+      "CỤM 7 & CỤM 8"
+    ]
+  },
+  "Pickleball đôi nữ": {
+    "mindmapData": {
+      "sport": "Pickleball đôi nữ",
+      "clusters": {
+        "CỤM 1 & CỤM 3": [
+          "1.1 Cienco5 và DHE (đội 1)",
+          "1.2 Cienco5 và DHE (đội 2)",
+          "1.3 Cienco5 và DHE (đội 3)",
+          "1.4 Văn Phòng Tập Đoàn (đội 1)",
+          "1.5 Văn Phòng Tập Đoàn (đội 2)",
+          "3.6 Mường Thanh Luxury Hạ Long Centre II"
+        ],
+        "CỤM 2": [
+          "2.1 Mường Thanh Lai Châu (đội 1)",
+          "2.2 Mường Thanh Lai Châu (đội 2)"
+        ],
+        "CỤM 5": [
+          "5.1 Mường Thanh Grand Phương Đông",
+          "5.2 Trung tâm Giải trí Vinh"
+        ],
+        "CỤM 6": [
+          "6.1 Mường Thanh Luxury Sông Hàn",
+          "6.2 Mường Thanh Luxury Đà Nẵng"
+        ]
+      },
+      "clusterInfo": {
+        "CỤM 1 & CỤM 3": "Chỉ tiêu: 5 suất",
+        "CỤM 2": "Chỉ tiêu: 1 suất",
+        "CỤM 5": "Chỉ tiêu: 1 suất",
+        "CỤM 6": "Chỉ tiêu: 1 suất"
+      },
+      "generalInfo": "- Cụm 1 + 3 đấu loại lấy 5 đội\n- Cụm 2 đấu loại lấy 1 đội\n- Cụm 5 đấu loại lấy 1 đội\n- Cụm 6 đấu loại lấy 1 đội"
+    },
+    "left": [
+      "CỤM 1 & CỤM 3",
+      "CỤM 2"
+    ],
+    "right": [
+      "CỤM 5",
+      "CỤM 6"
+    ]
+  },
+  "Bơi ếch Nữ - cự ly 40m": {
+    "mindmapData": {
+      "sport": "Bơi ếch Nữ - cự ly 40m",
+      "clusters": {
+        "CỤM 1": [
+          "1.1 Cienco5 và DHE (đội 1)",
+          "1.2 Cienco5 và DHE (đội 2)",
+          "1.3 Cienco5 và DHE (đội 3)",
+          "1.4 Văn Phòng Tập Đoàn (đội 1)",
+          "1.5 Văn Phòng Tập Đoàn (đội 2)"
+        ],
+        "CỤM 3": [
+          "3.1 Mường Thanh Luxury Hạ Long Centre"
+        ],
+        "CỤM 5": [
+          "5.1 Trung tâm Giải trí Vinh"
+        ],
+        "CỤM 6": [
+          "6.1 Mường Thanh Grand Quảng Nam"
+        ],
+        "CỤM 8": [
+          "8.1 Mường Thanh Luxury Sài Gòn"
+        ]
+      },
+      "clusterInfo": {},
+      "generalInfo": "9 đội vào thẳng VCK"
+    },
+    "left": [
+      "CỤM 1",
+      "CỤM 3",
+      "CỤM 5"
+    ],
+    "right": [
+      "CỤM 6",
+      "CỤM 8"
+    ]
+  }
+}
