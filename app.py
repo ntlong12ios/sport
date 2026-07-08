@@ -1163,20 +1163,25 @@ def index_page():
 
             function exportMindMapPDF() {
                 const element = document.getElementById('mindmap_container');
-                
-                // Đóng băng kích thước để tránh html2canvas làm xô lệch flexbox
                 const originalWidth = element.style.width;
                 const originalMinHeight = element.style.minHeight;
                 
-                const currentWidth = element.offsetWidth;
-                element.style.width = currentWidth + 'px';
+                element.style.width = '';
+                element.style.minHeight = '600px';
                 
-                // Ép tỉ lệ A3 (Landscape = width / 1.414) để tránh margin trắng ở dưới PDF
-                const targetHeight = currentWidth / 1.414;
-                if (element.offsetHeight < targetHeight) {
-                    element.style.minHeight = targetHeight + 'px';
-                }
+                let currentWidth = element.offsetWidth;
+                let currentHeight = element.offsetHeight;
+                const targetRatio = 1.414;
+                const currentRatio = currentWidth / currentHeight;
                 
+                if (currentRatio < targetRatio) {
+                    currentWidth = currentHeight * targetRatio;
+                    element.style.width = currentWidth + 'px';
+                } else {
+                    currentHeight = currentWidth / targetRatio;
+                    element.style.width = currentWidth + 'px';
+                    element.style.minHeight = currentHeight + 'px';
+                }                
                 // Vẽ lại lần cuối cho chắc chắn
                 drawMindMapLines();
                 
@@ -1256,11 +1261,21 @@ def index_page():
                     const originalWidth = element.style.width;
                     const originalMinHeight = element.style.minHeight;
                     
-                    const currentWidth = element.offsetWidth;
-                    element.style.width = currentWidth + 'px';
-                    const targetHeight = currentWidth / 1.414;
-                    if (element.offsetHeight < targetHeight) {
-                        element.style.minHeight = targetHeight + 'px';
+                    element.style.width = '';
+                    element.style.minHeight = '600px';
+                    
+                    let currentWidth = element.offsetWidth;
+                    let currentHeight = element.offsetHeight;
+                    const targetRatio = 1.414;
+                    const currentRatio = currentWidth / currentHeight;
+                    
+                    if (currentRatio < targetRatio) {
+                        currentWidth = currentHeight * targetRatio;
+                        element.style.width = currentWidth + 'px';
+                    } else {
+                        currentHeight = currentWidth / targetRatio;
+                        element.style.width = currentWidth + 'px';
+                        element.style.minHeight = currentHeight + 'px';
                     }
                     
                     drawMindMapLines();
@@ -1273,6 +1288,8 @@ def index_page():
                         worker = worker.get('pdf').then(pdf => { pdf.addPage(); }).from(element).toContainer().toCanvas().toImg().toPdf();
                     }
                     
+                    await worker;
+
                     element.style.width = originalWidth;
                     element.style.minHeight = originalMinHeight;
                 }
