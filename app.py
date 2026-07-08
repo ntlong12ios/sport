@@ -453,7 +453,8 @@ def index_page():
         <title>Đại Hội Mường Thanh V2</title>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://cdn.tailwindcss.com"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
         <style>
             .bracket-container { display: flex; gap: 40px; padding: 20px; overflow-x: auto; min-height: 500px; background: white; }
             .round-column { display: flex; flex-direction: column; justify-content: space-around; min-width: 240px; }
@@ -1161,50 +1162,40 @@ def index_page():
                 }
             });
 
-            function exportMindMapPDF() {
+            async function exportMindMapPDF() {
                 const element = document.getElementById('mindmap_container');
-                const originalWidth = element.style.width;
-                const originalMinHeight = element.style.minHeight;
-                
-                element.style.width = '';
-                element.style.minHeight = '600px';
-                
-                let currentWidth = element.offsetWidth;
-                let currentHeight = element.offsetHeight;
-                const targetRatio = 1.414;
-                const currentRatio = currentWidth / currentHeight;
-                
-                if (currentRatio < targetRatio) {
-                    currentWidth = currentHeight * targetRatio;
-                    element.style.width = currentWidth + 'px';
-                } else {
-                    currentHeight = currentWidth / targetRatio;
-                    element.style.width = currentWidth + 'px';
-                    element.style.minHeight = currentHeight + 'px';
-                }                
-                // Vẽ lại lần cuối cho chắc chắn
                 drawMindMapLines();
                 
-                const opt = {
-                    margin:       0,
-                    filename:     'SoDoTongQuan.pdf',
-                    image:        { type: 'jpeg', quality: 1 },
-                    html2canvas:  { 
-                        scale: 2, 
-                        useCORS: true,
-                        width: element.offsetWidth,
-                        height: element.offsetHeight,
-                        windowWidth: document.documentElement.offsetWidth
-                    },
-                    jsPDF:        { unit: 'mm', format: 'a3', orientation: 'landscape' }
-                };
-                
-                html2pdf().set(opt).from(element).save().then(() => {
-                    // Trả lại trạng thái cũ sau khi xuất xong
-                    element.style.width = originalWidth;
-                    element.style.minHeight = originalMinHeight;
-                    drawMindMapLines();
+                Swal.fire({
+                    title: 'Đang xuất PDF...',
+                    text: 'Vui lòng chờ...',
+                    allowOutsideClick: false,
+                    didOpen: () => { Swal.showLoading(); }
                 });
+                
+                const canvas = await html2canvas(element, { scale: 2, useCORS: true });
+                const imgData = canvas.toDataURL('image/jpeg', 1.0);
+                
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a3' });
+                
+                const pdfWidth = 420;
+                const pdfHeight = 297;
+                const imgWidth = canvas.width;
+                const imgHeight = canvas.height;
+                const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+                
+                const finalWidth = imgWidth * ratio;
+                const finalHeight = imgHeight * ratio;
+                const x = (pdfWidth - finalWidth) / 2;
+                const y = (pdfHeight - finalHeight) / 2;
+                
+                pdf.setFillColor(59, 92, 79);
+                pdf.rect(0, 0, pdfWidth, pdfHeight, 'F');
+                pdf.addImage(imgData, 'JPEG', x, y, finalWidth, finalHeight);
+                
+                pdf.save('SoDoTongQuan.pdf');
+                Swal.close();
             }
 
             async function exportAllMindMapsPDF() {
@@ -1217,7 +1208,6 @@ def index_page():
                     return;
                 }
 
-                // Sort keys based on the order in the mindmap_sport dropdown
                 const mmSelect = document.getElementById('mindmap_sport');
                 const orderMap = {};
                 for (let i = 0; i < mmSelect.options.length; i++) {
@@ -1229,24 +1219,18 @@ def index_page():
                     title: 'Đang xuất PDF...',
                     text: 'Vui lòng chờ, tiến trình có thể mất một lúc...',
                     allowOutsideClick: false,
-                    didOpen: () => {
-                        Swal.showLoading();
-                    }
+                    didOpen: () => { Swal.showLoading(); }
                 });
 
-                const opt = {
-                    margin:       0,
-                    image:        { type: 'jpeg', quality: 1 },
-                    html2canvas:  { scale: 2, useCORS: true },
-                    jsPDF:        { unit: 'mm', format: 'a3', orientation: 'landscape' }
-                };
-                
-                let worker = html2pdf().set(opt);
-                let isFirst = true;
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a3' });
+                const pdfWidth = 420;
+                const pdfHeight = 297;
                 
                 const originalSport = document.getElementById('mindmap_sport').value;
                 const element = document.getElementById('mindmap_container');
                 
+                let isFirst = true;
                 for(let i=0; i<keys.length; i++){
                     let k = keys[i];
                     let state = allSaved[k];
@@ -1257,46 +1241,31 @@ def index_page():
                     document.getElementById('mindmap_sport').value = mindmapData.sport;
                     renderMindMap();
                     await new Promise(r => setTimeout(r, 800)); // wait for render
-                    
-                    const originalWidth = element.style.width;
-                    const originalMinHeight = element.style.minHeight;
-                    
-                    element.style.width = '';
-                    element.style.minHeight = '600px';
-                    
-                    let currentWidth = element.offsetWidth;
-                    let currentHeight = element.offsetHeight;
-                    const targetRatio = 1.414;
-                    const currentRatio = currentWidth / currentHeight;
-                    
-                    if (currentRatio < targetRatio) {
-                        currentWidth = currentHeight * targetRatio;
-                        element.style.width = currentWidth + 'px';
-                    } else {
-                        currentHeight = currentWidth / targetRatio;
-                        element.style.width = currentWidth + 'px';
-                        element.style.minHeight = currentHeight + 'px';
-                    }
-                    
                     drawMindMapLines();
                     await new Promise(r => setTimeout(r, 200)); 
                     
-                    if (isFirst) {
-                        worker = worker.from(element).toPdf();
-                        isFirst = false;
-                    } else {
-                        worker = worker.get('pdf').then(pdf => { pdf.addPage(); }).from(element).toContainer().toCanvas().toImg().toPdf();
-                    }
+                    const canvas = await html2canvas(element, { scale: 2, useCORS: true });
+                    const imgData = canvas.toDataURL('image/jpeg', 1.0);
                     
-                    await worker;
-
-                    element.style.width = originalWidth;
-                    element.style.minHeight = originalMinHeight;
+                    if (!isFirst) pdf.addPage();
+                    isFirst = false;
+                    
+                    const imgWidth = canvas.width;
+                    const imgHeight = canvas.height;
+                    const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+                    
+                    const finalWidth = imgWidth * ratio;
+                    const finalHeight = imgHeight * ratio;
+                    const x = (pdfWidth - finalWidth) / 2;
+                    const y = (pdfHeight - finalHeight) / 2;
+                    
+                    pdf.setFillColor(59, 92, 79);
+                    pdf.rect(0, 0, pdfWidth, pdfHeight, 'F');
+                    pdf.addImage(imgData, 'JPEG', x, y, finalWidth, finalHeight);
                 }
                 
-                await worker.save('TatCaSoDo.pdf');
+                pdf.save('TatCaSoDo.pdf');
                 
-                // Khôi phục
                 if(originalSport) {
                     document.getElementById('mindmap_sport').value = originalSport;
                     const currentStr = allSaved[originalSport];
