@@ -480,8 +480,13 @@ def index_page():
                         <select id="mindmap_sport" class="p-2 border rounded font-bold text-blue-900 bg-gray-50 min-w-[200px]">
                             <!-- Options auto loaded -->
                         </select>
+                        <button onclick="loadSavedMindMap()" class="bg-cyan-600 hover:bg-cyan-500 text-white px-4 py-2 rounded font-bold">Lấy sơ đồ đã lưu</button>
                         <button onclick="loadMindMap()" class="bg-blue-800 hover:bg-blue-700 text-white px-4 py-2 rounded font-bold">Vẽ Sơ Đồ</button>
+                        <button id="btn_save_mindmap" onclick="saveFinalMindMap()" class="bg-orange-600 hover:bg-orange-500 text-white px-4 py-2 rounded font-bold hidden">Lưu sơ đồ</button>
                         <button onclick="exportMindMapPDF()" class="bg-green-600 hover:bg-green-500 text-white px-4 py-2 rounded font-bold">Xuất PDF</button>
+                        <button onclick="exportAllMindMapsPDF()" class="bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded font-bold">Xuất tất cả ra PDF</button>
+                        <button id="btn_merge_clusters" onclick="openMergeModal()" class="bg-yellow-600 hover:bg-yellow-500 text-white px-4 py-2 rounded font-bold hidden">Ghép Cụm</button>
+                        <button id="btn_add_info" onclick="openAddInfoModal()" class="bg-purple-600 hover:bg-purple-500 text-white px-4 py-2 rounded font-bold hidden">Thêm thông tin</button>
                     </div>
                 </div>
                 <div id="mindmap_container" class="relative w-full rounded" style="min-height: 600px; background-color: #3b5c4f;">
@@ -917,6 +922,26 @@ def index_page():
 
             function renderMindMap() {
                 if(!mindmapData) return;
+                document.getElementById('btn_merge_clusters').classList.remove('hidden');
+                document.getElementById('btn_add_info').classList.remove('hidden');
+                document.getElementById('btn_save_mindmap').classList.remove('hidden');
+                
+                // Auto load cluster info from localStorage
+                if (!mindmapData.clusterInfo) mindmapData.clusterInfo = {};
+                Object.keys(mindmapData.clusters).forEach(key => {
+                    if (!mindmapData.clusterInfo[key]) {
+                        const lsKey = 'mindmap_info_' + mindmapData.sport + '_' + key;
+                        const saved = localStorage.getItem(lsKey);
+                        if (saved) mindmapData.clusterInfo[key] = saved;
+                    }
+                });
+                
+                if (mindmapData.generalInfo === undefined) {
+                    const genLsKey = 'mindmap_general_info_' + mindmapData.sport;
+                    const savedGen = localStorage.getItem(genLsKey);
+                    if (savedGen) mindmapData.generalInfo = savedGen;
+                }
+                
                 const container = document.getElementById('mindmap_container');
                 container.innerHTML = `
                     <canvas id="mindmap_canvas" class="absolute top-0 left-0 w-full h-full pointer-events-none" style="z-index: 0;"></canvas>
@@ -931,15 +956,18 @@ def index_page():
                 const centerNode = document.createElement('div');
                 centerNode.className = "bg-green-700 text-white font-bold text-xl px-6 py-3 rounded border-2 border-yellow-400 shadow-lg text-center uppercase";
                 centerNode.id = "mm_center_node";
-                centerNode.innerHTML = `${mindmapData.sport}<div class="text-sm text-orange-500 normal-case font-normal italic mt-1">(Tổng số: ${totalTeams} đội)</div>`;
+                centerNode.innerHTML = `${mindmapData.sport}<div class="text-sm text-white normal-case font-normal italic mt-1">(Tổng số: ${totalTeams} đội)</div>`;
                 document.getElementById('mm_center').appendChild(centerNode);
                 
                 function createClusterHTML(cName, side) {
                     const teams = mindmapData.clusters[cName];
+                    const clusterTotal = teams.length;
                     
-                    // Group teams and draw mini lines using simple border logic or svg inside!
-                    // In the image, the cluster box branches out to individual teams.
-                    // A simple CSS trick:
+                    let addInfoHTML = '';
+                    if (mindmapData.clusterInfo && mindmapData.clusterInfo[cName]) {
+                        addInfoHTML = `<div class="text-sm font-normal mt-2 text-left whitespace-pre-wrap w-full">${mindmapData.clusterInfo[cName]}</div>`;
+                    }
+                    
                     let html = '';
                     if (side === 'left') {
                         html = `
@@ -947,16 +975,20 @@ def index_page():
                                 <div class="flex flex-col items-end">
                                     ${teams.map(t => `<div class="text-white text-xs whitespace-nowrap mb-1 font-mono border-b border-gray-400/50 pb-0.5 text-right w-full">${t}</div>`).join('')}
                                 </div>
-                                <div class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded shadow cluster-box z-10 shrink-0" id="box_${cName.replace(/\s+/g, '')}">
-                                    ${cName}
+                                <div class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded shadow cluster-box z-10 shrink-0 flex flex-col items-center justify-center text-center" id="box_${cName.replace(/\s+/g, '')}">
+                                    <span>${cName}</span>
+                                    <span class="text-sm font-normal italic mt-1">(Tổng số: ${clusterTotal} đội)</span>
+                                    ${addInfoHTML}
                                 </div>
                             </div>
                         `;
                     } else {
                         html = `
                             <div class="flex items-center justify-start gap-3 w-full group cursor-move my-1" draggable="true" ondragstart="mmDragStart(event)" ondrop="mmDrop(event)" ondragover="mmDragOver(event)" data-cluster="${cName}">
-                                <div class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded shadow cluster-box z-10 shrink-0" id="box_${cName.replace(/\s+/g, '')}">
-                                    ${cName}
+                                <div class="bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded shadow cluster-box z-10 shrink-0 flex flex-col items-center justify-center text-center" id="box_${cName.replace(/\s+/g, '')}">
+                                    <span>${cName}</span>
+                                    <span class="text-sm font-normal italic mt-1">(Tổng số: ${clusterTotal} đội)</span>
+                                    ${addInfoHTML}
                                 </div>
                                 <div class="flex flex-col items-start">
                                     ${teams.map(t => `<div class="text-white text-xs whitespace-nowrap mb-1 font-mono border-b border-gray-400/50 pb-0.5 text-left w-full">${t}</div>`).join('')}
@@ -974,6 +1006,14 @@ def index_page():
                 currentRightClusters.forEach(c => {
                     document.getElementById('mm_right').insertAdjacentHTML('beforeend', createClusterHTML(c, 'right'));
                 });
+                
+                if (mindmapData.generalInfo) {
+                    const generalInfoDiv = document.createElement('div');
+                    generalInfoDiv.className = "absolute bottom-8 right-8 border-2 border-gray-400/50 p-4 text-white text-sm font-medium whitespace-pre-wrap max-w-sm rounded shadow-lg z-10 text-left";
+                    generalInfoDiv.style.backgroundColor = "transparent";
+                    generalInfoDiv.innerText = mindmapData.generalInfo;
+                    container.appendChild(generalInfoDiv);
+                }
                 
                 setTimeout(drawMindMapLines, 100);
             }
@@ -1096,6 +1136,306 @@ def index_page():
                     element.style.minHeight = originalMinHeight;
                     drawMindMapLines();
                 });
+            }
+
+            async function exportAllMindMapsPDF() {
+                let keys = [];
+                for(let i=0; i<localStorage.length; i++){
+                    let k = localStorage.key(i);
+                    if(k.startsWith('saved_final_mindmap_')) {
+                        keys.push(k);
+                    }
+                }
+                
+                if(keys.length === 0) {
+                    Swal.fire('Thông báo', 'Chưa có sơ đồ nào được lưu! Bạn cần "Lưu sơ đồ" trước khi xuất tất cả.', 'info');
+                    return;
+                }
+
+                Swal.fire({
+                    title: 'Đang xuất PDF...',
+                    text: 'Vui lòng chờ, tiến trình có thể mất một lúc...',
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+
+                const opt = {
+                    margin:       0,
+                    image:        { type: 'jpeg', quality: 1 },
+                    html2canvas:  { scale: 2, useCORS: true },
+                    jsPDF:        { unit: 'mm', format: 'a3', orientation: 'landscape' }
+                };
+                
+                let worker = html2pdf().set(opt);
+                let isFirst = true;
+                
+                const originalSport = document.getElementById('mindmap_sport').value;
+                const element = document.getElementById('mindmap_container');
+                
+                for(let i=0; i<keys.length; i++){
+                    let k = keys[i];
+                    let savedStr = localStorage.getItem(k);
+                    if(!savedStr) continue;
+                    let state = JSON.parse(savedStr);
+                    mindmapData = state.mindmapData;
+                    currentLeftClusters = state.left;
+                    currentRightClusters = state.right;
+                    
+                    document.getElementById('mindmap_sport').value = mindmapData.sport;
+                    renderMindMap();
+                    await new Promise(r => setTimeout(r, 800)); // wait for render
+                    
+                    const originalWidth = element.style.width;
+                    const originalMinHeight = element.style.minHeight;
+                    
+                    const currentWidth = element.offsetWidth;
+                    element.style.width = currentWidth + 'px';
+                    const targetHeight = currentWidth / 1.414;
+                    if (element.offsetHeight < targetHeight) {
+                        element.style.minHeight = targetHeight + 'px';
+                    }
+                    
+                    drawMindMapLines();
+                    await new Promise(r => setTimeout(r, 200)); 
+                    
+                    if (isFirst) {
+                        worker = worker.from(element).toPdf();
+                        isFirst = false;
+                    } else {
+                        worker = worker.get('pdf').then(pdf => { pdf.addPage(); }).from(element).toContainer().toCanvas().toImg().toPdf();
+                    }
+                    
+                    element.style.width = originalWidth;
+                    element.style.minHeight = originalMinHeight;
+                }
+                
+                await worker.save('TatCaSoDo.pdf');
+                
+                // Khôi phục
+                if(originalSport) {
+                    document.getElementById('mindmap_sport').value = originalSport;
+                    const currentStr = localStorage.getItem('saved_final_mindmap_' + originalSport);
+                    if (currentStr) {
+                        let s = JSON.parse(currentStr);
+                        mindmapData = s.mindmapData;
+                        currentLeftClusters = s.left;
+                        currentRightClusters = s.right;
+                        renderMindMap();
+                    }
+                }
+                
+                Swal.close();
+                Swal.fire('Thành công', 'Đã xuất thành công file PDF gồm tất cả sơ đồ!', 'success');
+            }
+
+            function openMergeModal() {
+                if (!mindmapData || !mindmapData.clusters) return;
+                const clusterKeys = Object.keys(mindmapData.clusters);
+                if (clusterKeys.length < 2) {
+                    Swal.fire('Thông báo', 'Cần ít nhất 2 cụm để có thể ghép.', 'info');
+                    return;
+                }
+                
+                let selectOptions = '<option value="">-- Không ghép --</option>';
+                const maxGroups = Math.max(2, Math.floor(clusterKeys.length / 2));
+                for(let i=1; i<=maxGroups; i++) {
+                    selectOptions += `<option value="Nhóm ${i}">Ghép vào Nhóm ${i}</option>`;
+                }
+
+                let formHtml = '<div class="text-left mt-4" style="max-height: 400px; overflow-y: auto;">';
+                clusterKeys.forEach((key, index) => {
+                    formHtml += `
+                        <div class="mb-3 flex items-center justify-between">
+                            <span class="text-gray-700 font-medium w-1/2">${key}</span>
+                            <select id="merge_group_${index}" class="form-select w-1/2 border rounded p-1 merge-select" data-key="${key}">
+                                ${selectOptions}
+                            </select>
+                        </div>
+                    `;
+                });
+                formHtml += '</div>';
+
+                Swal.fire({
+                    title: 'Chọn các Cụm để ghép',
+                    html: formHtml,
+                    showCancelButton: true,
+                    confirmButtonText: 'Ghép Cụm',
+                    cancelButtonText: 'Hủy',
+                    preConfirm: () => {
+                        const selects = document.querySelectorAll('.merge-select');
+                        let groups = {};
+                        selects.forEach(sel => {
+                            const val = sel.value;
+                            const key = sel.getAttribute('data-key');
+                            if(val) {
+                                if(!groups[val]) groups[val] = [];
+                                groups[val].push(key);
+                            }
+                        });
+                        
+                        for(let g in groups) {
+                            if(groups[g].length < 2) {
+                                Swal.showValidationMessage(`Vui lòng chọn ít nhất 2 cụm cho ${g}`);
+                                return false;
+                            }
+                        }
+                        
+                        if(Object.keys(groups).length === 0) {
+                            Swal.showValidationMessage('Bạn chưa chọn nhóm nào để ghép');
+                            return false;
+                        }
+                        
+                        return groups;
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        const groups = result.value;
+                        
+                        for(let g in groups) {
+                            const selectedClusters = groups[g];
+                            const newClusterName = selectedClusters.join(' & ');
+                            
+                            let combinedTeams = [];
+                            selectedClusters.forEach(key => {
+                                combinedTeams = combinedTeams.concat(mindmapData.clusters[key]);
+                                delete mindmapData.clusters[key];
+                            });
+                            
+                            mindmapData.clusters[newClusterName] = combinedTeams;
+                        }
+                        
+                        const updatedKeys = Object.keys(mindmapData.clusters);
+                        const half = Math.ceil(updatedKeys.length / 2);
+                        currentLeftClusters = updatedKeys.slice(0, half);
+                        currentRightClusters = updatedKeys.slice(half);
+                        
+                        renderMindMap();
+                        Swal.fire('Thành công', 'Đã ghép cụm thành công!', 'success');
+                    }
+                });
+            }
+
+            function openAddInfoModal() {
+                if (!mindmapData || !mindmapData.clusters) return;
+                const clusterKeys = Object.keys(mindmapData.clusters);
+                
+                if (!mindmapData.clusterInfo) {
+                    mindmapData.clusterInfo = {};
+                }
+
+                let currentGeneralInfo = mindmapData.generalInfo || '';
+                if (!currentGeneralInfo) {
+                    const lsKey = 'mindmap_general_info_' + mindmapData.sport;
+                    currentGeneralInfo = localStorage.getItem(lsKey) || '';
+                }
+
+                let formHtml = '<div class="text-left mt-4" style="max-height: 400px; overflow-y: auto;">';
+                
+                formHtml += `
+                    <div class="mb-6 border-b-2 border-gray-200 pb-4">
+                        <label class="block text-purple-700 font-bold mb-1 uppercase">THÔNG TIN CHUNG</label>
+                        <textarea id="info_general" class="w-full border-2 border-purple-300 rounded p-2 text-sm" rows="3" placeholder="Nhập thông tin chung cho môn thi...">${currentGeneralInfo}</textarea>
+                    </div>
+                `;
+                
+                clusterKeys.forEach(key => {
+                    let currentInfo = mindmapData.clusterInfo[key] || '';
+                    if (!currentInfo) {
+                        const lsKey = 'mindmap_info_' + mindmapData.sport + '_' + key;
+                        currentInfo = localStorage.getItem(lsKey) || '';
+                    }
+                    
+                    formHtml += `
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-bold mb-1">${key}</label>
+                            <textarea id="info_${key.replace(/\s+/g, '')}" class="w-full border rounded p-2 text-sm" rows="3" placeholder="Nhập thông tin bổ sung cho ${key}...">${currentInfo}</textarea>
+                        </div>
+                    `;
+                });
+                formHtml += '</div>';
+
+                Swal.fire({
+                    title: 'Thêm thông tin cho các Cụm',
+                    html: formHtml,
+                    width: 600,
+                    showCancelButton: true,
+                    confirmButtonText: 'Lưu thông tin',
+                    cancelButtonText: 'Hủy',
+                    preConfirm: () => {
+                        let results = {};
+                        const genEl = document.getElementById('info_general');
+                        results['generalInfo'] = genEl ? genEl.value.trim() : '';
+                        
+                        clusterKeys.forEach(key => {
+                            const el = document.getElementById('info_' + key.replace(/\s+/g, ''));
+                            if (el) {
+                                results[key] = el.value.trim();
+                            }
+                        });
+                        return results;
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        const infoData = result.value;
+                        
+                        mindmapData.generalInfo = infoData['generalInfo'];
+                        const genLsKey = 'mindmap_general_info_' + mindmapData.sport;
+                        if (mindmapData.generalInfo) {
+                            localStorage.setItem(genLsKey, mindmapData.generalInfo);
+                        } else {
+                            localStorage.removeItem(genLsKey);
+                        }
+                        
+                        clusterKeys.forEach(key => {
+                            mindmapData.clusterInfo[key] = infoData[key];
+                            const lsKey = 'mindmap_info_' + mindmapData.sport + '_' + key;
+                            if (infoData[key]) {
+                                localStorage.setItem(lsKey, infoData[key]);
+                            } else {
+                                localStorage.removeItem(lsKey);
+                            }
+                        });
+                        renderMindMap();
+                        Swal.fire('Thành công', 'Đã lưu thông tin bổ sung!', 'success');
+                    }
+                });
+            }
+
+            function saveFinalMindMap() {
+                if (!mindmapData) return;
+                const sport = mindmapData.sport;
+                const state = {
+                    mindmapData: mindmapData,
+                    left: currentLeftClusters,
+                    right: currentRightClusters
+                };
+                localStorage.setItem('saved_final_mindmap_' + sport, JSON.stringify(state));
+                Swal.fire('Thành công', 'Đã lưu sơ đồ hoàn thiện cho môn ' + sport, 'success');
+            }
+
+            function loadSavedMindMap() {
+                const sport = document.getElementById('mindmap_sport').value;
+                if(!sport) {
+                    Swal.fire('Lỗi', 'Chưa có môn thi để chọn!', 'error');
+                    return;
+                }
+                const savedStr = localStorage.getItem('saved_final_mindmap_' + sport);
+                if (!savedStr) {
+                    Swal.fire('Thông báo', 'Chưa có sơ đồ nào được lưu cho môn này!', 'info');
+                    return;
+                }
+                try {
+                    const state = JSON.parse(savedStr);
+                    mindmapData = state.mindmapData;
+                    currentLeftClusters = state.left;
+                    currentRightClusters = state.right;
+                    renderMindMap();
+                    Swal.fire('Thành công', 'Đã tải sơ đồ được lưu!', 'success');
+                } catch(e) {
+                    Swal.fire('Lỗi', 'Không thể đọc dữ liệu đã lưu.', 'error');
+                }
             }
 
             initApp();
